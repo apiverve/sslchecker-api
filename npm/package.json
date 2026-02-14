@@ -1,9 +1,18 @@
 {
   "name": "@apiverve/sslchecker",
-  "version": "1.1.12",
+  "version": "1.1.13",
   "description": "SSL Checker is a simple tool for checking SSL certificates. It returns the SSL certificate details of a website.",
   "main": "index.js",
   "types": "index.d.ts",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "mocha",
     "example": "node examples/basic.js"
@@ -14,14 +23,18 @@
     "directory": "npm"
   },
   "keywords": [
-    "ssl checker", "ssl checker api", "ssl checker tool", "ssl checker software", "ssl checker service"
+    ""
   ],
-  "author": "APIVerve <hello@apiverve.com> (http://apiverve.com/)",
+  "author": {
+    "name": "APIVerve",
+    "email": "hello@apiverve.com",
+    "url": "https://apiverve.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/apiverve/sslchecker-api/issues"
   },
-  "homepage": "https://apiverve.com/marketplace/sslchecker?utm_source=npm",
+  "homepage": "https://sslchecker.apiverve.com?utm_source=npm&utm_medium=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
