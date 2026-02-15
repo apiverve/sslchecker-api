@@ -12,7 +12,6 @@ namespace APIVerve.API.SSLCertificateChecker
     {
         /// <summary>
         /// The domain of the website to check the SSL certificate of
-        /// Example: ebay.com
         /// </summary>
         [JsonProperty("domain")]
         public string Domain { get; set; }
