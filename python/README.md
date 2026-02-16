@@ -243,8 +243,9 @@ from apiverve_sslcertificatechecker.apiClient import SslcheckerAPIClient
 
 api = SslcheckerAPIClient("[YOUR_API_KEY]")
 
+query = { "domain": "ebay.com" }
+
 try:
-    query = { "domain": "ebay.com" }
     result = api.execute(query)
     print(result)
 finally:
