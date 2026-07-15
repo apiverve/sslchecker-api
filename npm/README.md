@@ -1,6 +1,6 @@
 # SSL Certificate Checker API
 
-SSL Checker is a simple tool for checking SSL certificates. It returns the SSL certificate details of a website.
+SSL Checker inspects a website's SSL certificate. It returns the certificate details plus derived signals — whether it is currently valid or expired, how many days until it expires, whether it expires soon, and whether it is self-signed.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -130,15 +130,13 @@ async function makeRequest() {
     },
     "issuer": {
       "C": "GB",
-      "ST": "Greater Manchester",
-      "L": "Salford",
       "O": "Sectigo Limited",
-      "CN": "Sectigo RSA Organization Validation Secure Server CA"
+      "CN": "Sectigo Public Server Authentication CA OV R36"
     },
-    "subjectaltname": "DNS:ebay.com, DNS:befr.ebay.be, DNS:benl.ebay.be, DNS:cafr.ebay.ca, DNS:e-bay.it, DNS:ebay.at, DNS:ebay.be, DNS:ebay.ca, DNS:ebay.ch, DNS:ebay.co.uk, DNS:ebay.com.au, DNS:ebay.com.hk, DNS:ebay.com.my, DNS:ebay.com.sg, DNS:ebay.de, DNS:ebay.es, DNS:ebay.fr, DNS:ebay.ie, DNS:ebay.in, DNS:ebay.it, DNS:ebay.nl, DNS:ebay.ph, DNS:ebay.pl, DNS:ebay.us, DNS:ebay.vn",
+    "subjectaltname": "DNS:ebay.com, DNS:befr.ebay.be, DNS:benl.ebay.be, DNS:cafr.ebay.ca, DNS:e-bay.it, DNS:ebay.at, DNS:ebay.be, DNS:ebay.ca, DNS:ebay.ch, DNS:ebay.co.uk, DNS:ebay.com.au, DNS:ebay.com.hk, DNS:ebay.com.my, DNS:ebay.com.sg, DNS:ebay.de, DNS:ebay.es, DNS:ebay.fr, DNS:ebay.ie, DNS:ebay.in, DNS:ebay.it, DNS:ebay.nl, DNS:ebay.ph, DNS:ebay.pl, DNS:ebay.us, DNS:ebay.vn, DNS:wwww.ebay.co.uk, DNS:wwww.ebay.com, DNS:wwww.ebay.com.au, DNS:wwww.ebay.de, DNS:wwww.ebay.in, DNS:wwww.ebay.it",
     "infoAccess": {
       "CA Issuers - URI": [
-        "http://crt.sectigo.com/SectigoRSAOrganizationValidationSecureServerCA.crt"
+        "http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt"
       ],
       "OCSP - URI": [
         "http://ocsp.sectigo.com"
@@ -146,10 +144,15 @@ async function makeRequest() {
     },
     "ca": false,
     "bits": 2048,
-    "valid_from": "Jan  8 00:00:00 2025 GMT",
-    "valid_to": "Jan  8 23:59:59 2026 GMT",
-    "serialNumber": "A89BCEBA167A33593AD3202C7FE2C420",
-    "domain": "ebay.com"
+    "valid_from": "Jul 28 00:00:00 2025 GMT",
+    "valid_to": "Jul 28 23:59:59 2026 GMT",
+    "serialNumber": "99F408949A6416EDC3B8F5EC77B2EBE5",
+    "domain": "ebay.com",
+    "isExpired": false,
+    "isValid": true,
+    "daysUntilExpiry": 20,
+    "isExpiringSoon": true,
+    "isSelfSigned": false
   }
 }
 ```
