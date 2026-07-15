@@ -1,6 +1,6 @@
 # [SSL Certificate Checker API](https://sslchecker.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
 
-SSL Checker is a simple tool for checking SSL certificates. It returns the SSL certificate details of a website.
+SSL Checker inspects a website&#x27;s SSL certificate. It returns the certificate details plus derived signals — whether it is currently valid or expired, how many days until it expires, whether it expires soon, and whether it is self-signed.
 
 The SSL Certificate Checker API provides a simple, reliable way to integrate ssl certificate checker functionality into your applications. Built for developers who need production-ready ssl certificate checker capabilities without the complexity of building from scratch.
 
@@ -30,7 +30,11 @@ The SSL Certificate Checker API provides a simple, reliable way to integrate ssl
 ```javascript
 async function callSSLCertificateCheckerAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/sslchecker', {
+        const params = new URLSearchParams({
+            domain: 'ebay.com'
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/sslchecker?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +54,7 @@ callSSLCertificateCheckerAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/sslchecker?param=value" \
+curl -X GET "https://api.apiverve.com/v1/sslchecker?domain=ebay.com" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +154,7 @@ go get github.com/apiverve/sslchecker-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +173,7 @@ go get github.com/apiverve/sslchecker-api/go
 The SSL Certificate Checker API is commonly used for:
 
 - **Web Applications** - Add ssl certificate checker features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with ssl certificate checker capabilities
 - **Data Pipelines** - Process and analyze data at scale
