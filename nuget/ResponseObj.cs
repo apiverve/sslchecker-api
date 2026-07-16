@@ -25,6 +25,9 @@ namespace APIVerve.API.SSLCertificateChecker
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
@@ -42,10 +45,10 @@ namespace APIVerve.API.SSLCertificateChecker
         public Dictionary<string, Uri[]> InfoAccess { get; set; }
 
         [JsonProperty("ca")]
-        public bool Ca { get; set; }
+        public bool? Ca { get; set; }
 
         [JsonProperty("bits")]
-        public long Bits { get; set; }
+        public long? Bits { get; set; }
 
         [JsonProperty("valid_from")]
         public string ValidFrom { get; set; }
@@ -58,6 +61,21 @@ namespace APIVerve.API.SSLCertificateChecker
 
         [JsonProperty("domain")]
         public string Domain { get; set; }
+
+        [JsonProperty("isExpired")]
+        public bool? IsExpired { get; set; }
+
+        [JsonProperty("isValid")]
+        public bool? IsValid { get; set; }
+
+        [JsonProperty("daysUntilExpiry")]
+        public long? DaysUntilExpiry { get; set; }
+
+        [JsonProperty("isExpiringSoon")]
+        public bool? IsExpiringSoon { get; set; }
+
+        [JsonProperty("isSelfSigned")]
+        public bool? IsSelfSigned { get; set; }
     }
 
     public partial class Issuer
@@ -65,16 +83,25 @@ namespace APIVerve.API.SSLCertificateChecker
         [JsonProperty("C")]
         public string C { get; set; }
 
-        [JsonProperty("ST")]
-        public string St { get; set; }
-
-        [JsonProperty("L", NullValueHandling = NullValueHandling.Ignore)]
-        public string L { get; set; }
-
         [JsonProperty("O")]
         public string O { get; set; }
 
         [JsonProperty("CN")]
         public string Cn { get; set; }
+
+        [JsonProperty("ST")]
+        public string St { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
