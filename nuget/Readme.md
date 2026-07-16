@@ -1,7 +1,7 @@
 SSLCertificateChecker API
 ============
 
-SSL Checker is a simple tool for checking SSL certificates. It returns the SSL certificate details of a website.
+SSL Checker inspects a website's SSL certificate. It returns the certificate details plus derived signals — whether it is currently valid or expired, how many days until it expires, whether it expires soon, and whether it is self-signed.
 
 ![Build Status](https://img.shields.io/badge/build-passing-green)
 ![Code Climate](https://img.shields.io/badge/maintainability-B-purple)
@@ -51,7 +51,7 @@ Here's a simple example to get you started quickly:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.SSLCertificateChecker;
 
 class Program
 {
@@ -60,8 +60,8 @@ class Program
         // Initialize the API client
         var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+        var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
         // Make the API call
@@ -116,7 +116,7 @@ The modern async/await pattern provides the best performance and code readabilit
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.SSLCertificateChecker;
 
 public class Example
 {
@@ -124,8 +124,8 @@ public class Example
     {
         var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+        var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -148,7 +148,7 @@ If you need to use synchronous code, you can use the `Execute` method:
 
 ```csharp
 using System;
-using APIVerve;
+using APIVerve.API.SSLCertificateChecker;
 
 public class Example
 {
@@ -156,8 +156,8 @@ public class Example
     {
         var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+        var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
         var response = apiClient.Execute(queryOptions);
@@ -185,7 +185,7 @@ The API client provides comprehensive error handling. Here are some examples:
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.SSLCertificateChecker;
 
 public class Example
 {
@@ -193,8 +193,8 @@ public class Example
     {
         var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]");
 
-        var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+        var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
         try
@@ -237,7 +237,7 @@ public class Example
 ```csharp
 using System;
 using System.Threading.Tasks;
-using APIVerve;
+using APIVerve.API.SSLCertificateChecker;
 
 public class Example
 {
@@ -249,8 +249,8 @@ public class Example
         apiClient.SetMaxRetries(3);        // Retry up to 3 times (default: 0, max: 3)
         apiClient.SetRetryDelay(2000);     // Wait 2 seconds between retries
 
-        var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+        var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
         try
@@ -290,8 +290,8 @@ var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]");
 apiClient.AddCustomHeader("X-Custom-Header", "custom-value");
 apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
-var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -316,8 +316,8 @@ apiClient.SetLogger(message =>
     Console.WriteLine($"[LOG] {DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}");
 });
 
-var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -334,8 +334,8 @@ var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]");
 apiClient.SetMaxRetries(3);           // Retry up to 3 times (default: 0, max: 3)
 apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (default: 1000ms)
 
-var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -346,8 +346,8 @@ var response = await apiClient.ExecuteAsync(queryOptions);
 The API client implements `IDisposable` for proper resource cleanup:
 
 ```csharp
-var queryOptions = new QueryOptions {
-    domain = "ebay.com"
+var queryOptions = new SSLCertificateCheckerQueryOptions {
+    Domain = "ebay.com"
 };
 
 using (var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]"))
@@ -375,15 +375,13 @@ using (var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]"))
     },
     "issuer": {
       "C": "GB",
-      "ST": "Greater Manchester",
-      "L": "Salford",
       "O": "Sectigo Limited",
-      "CN": "Sectigo RSA Organization Validation Secure Server CA"
+      "CN": "Sectigo Public Server Authentication CA OV R36"
     },
-    "subjectaltname": "DNS:ebay.com, DNS:befr.ebay.be, DNS:benl.ebay.be, DNS:cafr.ebay.ca, DNS:e-bay.it, DNS:ebay.at, DNS:ebay.be, DNS:ebay.ca, DNS:ebay.ch, DNS:ebay.co.uk, DNS:ebay.com.au, DNS:ebay.com.hk, DNS:ebay.com.my, DNS:ebay.com.sg, DNS:ebay.de, DNS:ebay.es, DNS:ebay.fr, DNS:ebay.ie, DNS:ebay.in, DNS:ebay.it, DNS:ebay.nl, DNS:ebay.ph, DNS:ebay.pl, DNS:ebay.us, DNS:ebay.vn",
+    "subjectaltname": "DNS:ebay.com, DNS:befr.ebay.be, DNS:benl.ebay.be, DNS:cafr.ebay.ca, DNS:e-bay.it, DNS:ebay.at, DNS:ebay.be, DNS:ebay.ca, DNS:ebay.ch, DNS:ebay.co.uk, DNS:ebay.com.au, DNS:ebay.com.hk, DNS:ebay.com.my, DNS:ebay.com.sg, DNS:ebay.de, DNS:ebay.es, DNS:ebay.fr, DNS:ebay.ie, DNS:ebay.in, DNS:ebay.it, DNS:ebay.nl, DNS:ebay.ph, DNS:ebay.pl, DNS:ebay.us, DNS:ebay.vn, DNS:wwww.ebay.co.uk, DNS:wwww.ebay.com, DNS:wwww.ebay.com.au, DNS:wwww.ebay.de, DNS:wwww.ebay.in, DNS:wwww.ebay.it",
     "infoAccess": {
       "CA Issuers - URI": [
-        "http://crt.sectigo.com/SectigoRSAOrganizationValidationSecureServerCA.crt"
+        "http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt"
       ],
       "OCSP - URI": [
         "http://ocsp.sectigo.com"
@@ -391,10 +389,15 @@ using (var apiClient = new SSLCertificateCheckerAPIClient("[YOUR_API_KEY]"))
     },
     "ca": false,
     "bits": 2048,
-    "valid_from": "Jan  8 00:00:00 2025 GMT",
-    "valid_to": "Jan  8 23:59:59 2026 GMT",
-    "serialNumber": "A89BCEBA167A33593AD3202C7FE2C420",
-    "domain": "ebay.com"
+    "valid_from": "Jul 28 00:00:00 2025 GMT",
+    "valid_to": "Jul 28 23:59:59 2026 GMT",
+    "serialNumber": "99F408949A6416EDC3B8F5EC77B2EBE5",
+    "domain": "ebay.com",
+    "isExpired": false,
+    "isValid": true,
+    "daysUntilExpiry": 20,
+    "isExpiringSoon": true,
+    "isSelfSigned": false
   }
 }
 ```
