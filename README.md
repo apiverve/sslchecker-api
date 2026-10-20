@@ -1,13 +1,13 @@
-# [SSL Certificate Checker API](https://sslchecker.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [SSL Certificate Checker API](https://apiverve.com/marketplace/sslchecker?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
 SSL Checker inspects a website&#x27;s SSL certificate. It returns the certificate details plus derived signals — whether it is currently valid or expired, how many days until it expires, whether it expires soon, and whether it is self-signed.
 
 The SSL Certificate Checker API provides a simple, reliable way to integrate ssl certificate checker functionality into your applications. Built for developers who need production-ready ssl certificate checker capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://sslchecker.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/sslchecker?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://sslchecker.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/sslchecker?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -161,7 +161,7 @@ go get github.com/apiverve/sslchecker-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [SSL Certificate Checker API](https://sslchecker.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [SSL Certificate Checker API](https://apiverve.com/marketplace/sslchecker?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/sslchecker](https://docs.apiverve.com/ref/sslchecker)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -191,11 +191,58 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the SSL Certificate Checker API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "subject": {
+      "C": "US",
+      "ST": "California",
+      "O": "eBay, Inc.",
+      "CN": "ebay.com"
+    },
+    "issuer": {
+      "C": "GB",
+      "O": "Sectigo Limited",
+      "CN": "Sectigo Public Server Authentication CA OV R36"
+    },
+    "subjectaltname": "DNS:ebay.com, DNS:befr.ebay.be, DNS:benl.ebay.be, DNS:cafr.ebay.ca, DNS:e-bay.it, DNS:ebay.at, DNS:ebay.be, DNS:ebay.ca, DNS:ebay.ch, DNS:ebay.co.uk, DNS:ebay.com.au, DNS:ebay.com.hk, DNS:ebay.com.my, DNS:ebay.com.sg, DNS:ebay.de, DNS:ebay.es, DNS:ebay.fr, DNS:ebay.ie, DNS:ebay.in, DNS:ebay.it, DNS:ebay.nl, DNS:ebay.ph, DNS:ebay.pl, DNS:ebay.us, DNS:ebay.vn, DNS:wwww.ebay.co.uk, DNS:wwww.ebay.com, DNS:wwww.ebay.com.au, DNS:wwww.ebay.de, DNS:wwww.ebay.in, DNS:wwww.ebay.it",
+    "infoAccess": {
+      "CA Issuers - URI": [
+        "http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt"
+      ],
+      "OCSP - URI": [
+        "http://ocsp.sectigo.com"
+      ]
+    },
+    "ca": false,
+    "bits": 2048,
+    "valid_from": "Jul 28 00:00:00 2025 GMT",
+    "valid_to": "Jul 28 23:59:59 2026 GMT",
+    "serialNumber": "99F408949A6416EDC3B8F5EC77B2EBE5",
+    "domain": "ebay.com",
+    "isExpired": false,
+    "isValid": true,
+    "daysUntilExpiry": 20,
+    "isExpiringSoon": true,
+    "isSelfSigned": false
+  }
 }
 ```
 
@@ -203,7 +250,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
-- 🏠 **API Home**: [SSL Certificate Checker API](https://sslchecker.apiverve.com?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [SSL Certificate Checker API](https://apiverve.com/marketplace/sslchecker?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

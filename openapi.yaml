@@ -20,7 +20,7 @@ servers:
 paths:
   /v1/sslchecker:
     get:
-      summary: Check SSL Certificate
+      summary: SSL Certificate Checker
       description: Check the SSL certificate of a domain
       operationId: sslchecker
       parameters:
@@ -73,8 +73,7 @@ paths:
                     DNS:wwww.ebay.in, DNS:wwww.ebay.it
                   infoAccess:
                     CA Issuers - URI:
-                      - >-
-                        http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt
+                      - http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt
                     OCSP - URI:
                       - http://ocsp.sectigo.com
                   ca: false
