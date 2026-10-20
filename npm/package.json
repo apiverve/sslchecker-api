@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/sslchecker",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "SSL Checker inspects a website's SSL certificate. It returns the certificate details plus derived signals — whether it is currently valid or expired, how many days until it expires, whether it expires soon, and whether it is self-signed.",
   "main": "index.js",
   "types": "index.d.ts",
@@ -23,7 +23,7 @@
     "directory": "npm"
   },
   "keywords": [
-    "ssl checker", "ssl checker api", "ssl checker tool", "ssl checker software", "ssl checker service"
+    "ssl checker api", "ssl certificate checker api", "ssl certificate api", "ssl lookup api", "ssl monitoring api"
   ],
   "author": {
     "name": "APIVerve",
@@ -34,7 +34,7 @@
   "bugs": {
     "url": "https://github.com/apiverve/sslchecker-api/issues"
   },
-  "homepage": "https://sslchecker.apiverve.com?utm_source=npm&utm_medium=homepage",
+  "homepage": "https://apiverve.com/marketplace/sslchecker?utm_source=npm&utm_medium=referral&utm_content=homepage",
   "devDependencies": {
     "mocha": "^11.0.1",
     "chai": "^5.1.2",
