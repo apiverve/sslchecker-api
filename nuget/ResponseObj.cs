@@ -76,6 +76,69 @@ namespace APIVerve.API.SSLCertificateChecker
 
         [JsonProperty("isSelfSigned")]
         public bool? IsSelfSigned { get; set; }
+
+        [JsonProperty("protocol")]
+        public string Protocol { get; set; }
+
+        [JsonProperty("cipher")]
+        public string Cipher { get; set; }
+
+        [JsonProperty("isTrusted")]
+        public bool? IsTrusted { get; set; }
+
+        [JsonProperty("trustError")]
+        public object TrustError { get; set; }
+
+        [JsonProperty("hostnameMatches")]
+        public bool? HostnameMatches { get; set; }
+
+        [JsonProperty("chain")]
+        public Chain[] Chain { get; set; }
+
+        [JsonProperty("keyType")]
+        public string KeyType { get; set; }
+
+        [JsonProperty("signatureAlgorithm")]
+        public string SignatureAlgorithm { get; set; }
+
+        [JsonProperty("hasEmbeddedSCTs")]
+        public bool? HasEmbeddedScTs { get; set; }
+
+        [JsonProperty("ocspStapled")]
+        public bool? OcspStapled { get; set; }
+
+        [JsonProperty("hsts")]
+        public Hsts Hsts { get; set; }
+    }
+
+    public partial class Chain
+    {
+        [JsonProperty("subject")]
+        public string Subject { get; set; }
+
+        [JsonProperty("issuer")]
+        public string Issuer { get; set; }
+
+        [JsonProperty("validTo")]
+        public string ValidTo { get; set; }
+
+        [JsonProperty("isCA")]
+        public bool? IsCa { get; set; }
+    }
+
+    public partial class Hsts
+    {
+        [JsonProperty("present")]
+        public bool? Present { get; set; }
+
+        [JsonProperty("maxAge")]
+        public long? MaxAge { get; set; }
+
+        [JsonProperty("includeSubDomains")]
+        public bool? IncludeSubDomains { get; set; }
+
+        [JsonProperty("preload")]
+        public bool? Preload { get; set; }
     }
 
     public partial class Issuer

@@ -4,7 +4,7 @@
     <TargetFrameworks>net20;net35;net40;net45;netstandard2.0;netstandard2.1;net6.0;net8.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>SSL Certificate Checker API</Title>
-    <Version>1.2.2</Version>
+    <Version>1.2.3</Version>
     <Authors>APIVerve</Authors>
     <Company>APIVerve</Company>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -14,7 +14,7 @@
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
     <PackageProjectUrl>https://apiverve.com/marketplace/sslchecker?utm_source=nuget&amp;utm_medium=referral&amp;utm_content=homepage</PackageProjectUrl>
     <SignAssembly>False</SignAssembly>
-    <Description>SSL Checker inspects a website's SSL certificate. It returns the certificate details plus derived signals — whether it is currently valid or expired, how many days until it expires, whether it expires soon, and whether it is self-signed.</Description>
+    <Description>SSL Checker is an SSL certificate API that connects to a website and checks its live certificate in seconds. It returns the certificate details, whether the chain verifies to a trusted root and matches the hostname, the negotiated TLS version and cipher, HSTS and OCSP stapling, plus expiry signals: valid or expired, days until expiry, expiring soon and self-signed.</Description>
     <RepositoryUrl>https://github.com/apiverve/sslchecker-api</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>ssl-checker-api;ssl-certificate-checker-api;ssl-certificate-api;ssl-lookup-api;ssl-monitoring-api;api;rest;http;client;apiverve;wrapper;sdk</PackageTags>
@@ -37,7 +37,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
     <!-- Package Release Notes -->
-    <PackageReleaseNotes>SSL Certificate Checker API client for .NET, version 1.2.2. Features include async/await support, automatic retries, custom headers, request logging, and cancellation token support.</PackageReleaseNotes>
+    <PackageReleaseNotes>SSL Certificate Checker API client for .NET, version 1.2.3. Features include async/await support, automatic retries, custom headers, request logging, and cancellation token support.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
