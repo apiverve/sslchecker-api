@@ -25,21 +25,46 @@ declare module '@apiverve/sslchecker' {
 
 
   interface SSLCertificateCheckerData {
-      subject:         Issuer;
-      issuer:          Issuer;
-      subjectaltname:  null | string;
-      infoAccess:      { [key: string]: (null | string)[] };
-      ca:              boolean | null;
-      bits:            number | null;
-      validFrom:       null | string;
-      validTo:         null | string;
-      serialNumber:    null | string;
-      domain:          null | string;
-      isExpired:       boolean | null;
-      isValid:         boolean | null;
-      daysUntilExpiry: number | null;
-      isExpiringSoon:  boolean | null;
-      isSelfSigned:    boolean | null;
+      subject:            Issuer;
+      issuer:             Issuer;
+      subjectaltname:     null | string;
+      infoAccess:         { [key: string]: (null | string)[] };
+      ca:                 boolean | null;
+      bits:               number | null;
+      validFrom:          null | string;
+      validTo:            null | string;
+      serialNumber:       null | string;
+      domain:             null | string;
+      isExpired:          boolean | null;
+      isValid:            boolean | null;
+      daysUntilExpiry:    number | null;
+      isExpiringSoon:     boolean | null;
+      isSelfSigned:       boolean | null;
+      protocol:           null | string;
+      cipher:             null | string;
+      isTrusted:          boolean | null;
+      trustError:         null;
+      hostnameMatches:    boolean | null;
+      chain:              Chain[];
+      keyType:            null | string;
+      signatureAlgorithm: null | string;
+      hasEmbeddedSCTs:    boolean | null;
+      ocspStapled:        boolean | null;
+      hsts:               Hsts;
+  }
+  
+  interface Chain {
+      subject: null | string;
+      issuer:  null | string;
+      validTo: null | string;
+      isCA:    boolean | null;
+  }
+  
+  interface Hsts {
+      present:           boolean | null;
+      maxAge:            number | null;
+      includeSubDomains: boolean | null;
+      preload:           boolean | null;
   }
   
   interface Issuer {

@@ -1,6 +1,6 @@
 # SSL Certificate Checker API
 
-SSL Checker inspects a website's SSL certificate. It returns the certificate details plus derived signals — whether it is currently valid or expired, how many days until it expires, whether it expires soon, and whether it is self-signed.
+SSL Checker is an SSL certificate API that connects to a website and checks its live certificate in seconds. It returns the certificate details, whether the chain verifies to a trusted root and matches the hostname, the negotiated TLS version and cipher, HSTS and OCSP stapling, plus expiry signals: valid or expired, days until expiry, expiring soon and self-signed.
 
 [![npm version](https://img.shields.io/npm/v/@apiverve/sslchecker.svg)](https://www.npmjs.com/package/@apiverve/sslchecker)
 
@@ -128,12 +128,12 @@ async function makeRequest() {
     "issuer": {
       "C": "GB",
       "O": "Sectigo Limited",
-      "CN": "Sectigo Public Server Authentication CA OV R36"
+      "CN": "Sectigo Public Server Authentication CA OV R40"
     },
-    "subjectaltname": "DNS:ebay.com, DNS:befr.ebay.be, DNS:benl.ebay.be, DNS:cafr.ebay.ca, DNS:e-bay.it, DNS:ebay.at, DNS:ebay.be, DNS:ebay.ca, DNS:ebay.ch, DNS:ebay.co.uk, DNS:ebay.com.au, DNS:ebay.com.hk, DNS:ebay.com.my, DNS:ebay.com.sg, DNS:ebay.de, DNS:ebay.es, DNS:ebay.fr, DNS:ebay.ie, DNS:ebay.in, DNS:ebay.it, DNS:ebay.nl, DNS:ebay.ph, DNS:ebay.pl, DNS:ebay.us, DNS:ebay.vn, DNS:wwww.ebay.co.uk, DNS:wwww.ebay.com, DNS:wwww.ebay.com.au, DNS:wwww.ebay.de, DNS:wwww.ebay.in, DNS:wwww.ebay.it",
+    "subjectaltname": "DNS:ebay.com, DNS:befr.ebay.be, DNS:benl.ebay.be, DNS:cafr.ebay.ca, DNS:e-bay.com, DNS:e-bay.it, DNS:ebay.at, DNS:ebay.be, DNS:ebay.ca, DNS:ebay.ch, DNS:ebay.co.nz, DNS:ebay.co.uk, DNS:ebay.com.au, DNS:ebay.com.cn, DNS:ebay.com.hk, DNS:ebay.com.my, DNS:ebay.com.ph, DNS:ebay.com.sg, DNS:ebay.de, DNS:ebay.es, DNS:ebay.fr, DNS:ebay.ie, DNS:ebay.in, DNS:ebay.io, DNS:ebay.it, DNS:ebay.nl, DNS:ebay.ph, DNS:ebay.pl, DNS:ebay.us, DNS:ebay.vn, DNS:shorturiweb.ebay.com, DNS:wwww.ebay.co.uk, DNS:wwww.ebay.com, DNS:wwww.ebay.com.au, DNS:wwww.ebay.de, DNS:wwww.ebay.in, DNS:wwww.ebay.it",
     "infoAccess": {
       "CA Issuers - URI": [
-        "http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR36.crt"
+        "http://crt.sectigo.com/SectigoPublicServerAuthenticationCAOVR40.crt"
       ],
       "OCSP - URI": [
         "http://ocsp.sectigo.com"
@@ -141,15 +141,56 @@ async function makeRequest() {
     },
     "ca": false,
     "bits": 2048,
-    "valid_from": "Jul 28 00:00:00 2025 GMT",
-    "valid_to": "Jul 28 23:59:59 2026 GMT",
-    "serialNumber": "99F408949A6416EDC3B8F5EC77B2EBE5",
+    "valid_from": "Oct  6 00:00:00 2026 GMT",
+    "valid_to": "Apr 22 23:59:59 2027 GMT",
+    "serialNumber": "19FD41E42C169CF248511D2BEE660A83",
     "domain": "ebay.com",
     "isExpired": false,
     "isValid": true,
-    "daysUntilExpiry": 20,
-    "isExpiringSoon": true,
-    "isSelfSigned": false
+    "daysUntilExpiry": 182,
+    "isExpiringSoon": false,
+    "isSelfSigned": false,
+    "protocol": "TLSv1.3",
+    "cipher": "TLS_AES_128_GCM_SHA256",
+    "isTrusted": true,
+    "trustError": null,
+    "hostnameMatches": true,
+    "chain": [
+      {
+        "subject": "ebay.com",
+        "issuer": "Sectigo Public Server Authentication CA OV R40",
+        "validTo": "Apr 22 23:59:59 2027 GMT",
+        "isCA": false
+      },
+      {
+        "subject": "Sectigo Public Server Authentication CA OV R40",
+        "issuer": "Sectigo Public Server Authentication Root R46",
+        "validTo": "May 13 23:59:59 2040 GMT",
+        "isCA": true
+      },
+      {
+        "subject": "Sectigo Public Server Authentication Root R46",
+        "issuer": "USERTrust RSA Certification Authority",
+        "validTo": "Jan 18 23:59:59 2038 GMT",
+        "isCA": true
+      },
+      {
+        "subject": "USERTrust RSA Certification Authority",
+        "issuer": "USERTrust RSA Certification Authority",
+        "validTo": "Jan 18 23:59:59 2038 GMT",
+        "isCA": true
+      }
+    ],
+    "keyType": "RSA",
+    "signatureAlgorithm": "sha256WithRSAEncryption",
+    "hasEmbeddedSCTs": true,
+    "ocspStapled": true,
+    "hsts": {
+      "present": true,
+      "maxAge": 31536000,
+      "includeSubDomains": false,
+      "preload": false
+    }
   }
 }
 ```
