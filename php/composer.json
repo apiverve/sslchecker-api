@@ -1,7 +1,7 @@
 {
     "name": "apiverve/sslchecker",
     "description": "SSL Checker is an SSL certificate API that connects to a website and checks its live certificate in seconds. It returns the certificate details, whether the chain verifies to a trusted root and matches the hostname, the negotiated TLS version and cipher, HSTS and OCSP stapling, plus expiry signals: valid or expired, days until expiry, expiring soon and self-signed.",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "type": "library",
     "license": "MIT",
     "authors": [
